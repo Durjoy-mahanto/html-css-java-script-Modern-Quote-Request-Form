@@ -12,8 +12,10 @@ A clean, modern, and fully responsive **Quote Request Form** built using **HTML5
 
 > Add a screenshot named **preview.png** to your project folder.
 
-```md
-![Modern Quote Request Form](preview.png)
+<img width="1037" height="638" alt="Screenshot 2026-07-09 120447" src="https://github.com/user-attachments/assets/b88e7627-a359-4094-b803-d1905ece0ecd" />
+
+<img width="1920" height="883" alt="image" src="https://github.com/user-attachments/assets/82f08d11-7065-4e0e-844c-46dc110d11fe" />
+
 ```
 
 ---
