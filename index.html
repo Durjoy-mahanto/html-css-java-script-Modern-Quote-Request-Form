@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title> Modern Quote Request Form</title>
+</head>
+<body>
+  <div class="container">
+<div class="blob blob-1"></div>
+<div class="blob blob-2"></div>
+
+<div class="quote-form">
+    <h2>Request A Quote</h2>
+    <p>Fill in your details and we'll get back to you shortly.</p>
+
+    <form id="quoteForm">
+        <div class="form-grid">
+            <div class="input-group">
+                <input type="text" required>
+                <label>Full Name</label>
+            </div>
+
+            <div class="input-group">
+                <input type="email" required>
+                <label>Email Address</label>
+            </div>
+
+            <div class="input-group">
+                <input type="tel" required>
+                <label>Phone Number</label>
+            </div>
+
+            <div class="input-group">
+                <select required>
+                    <option value="">Select Services</option>
+                    <option value="web">Web Design</option>
+                    <option value="seo">SEO</option>
+                    <option value="digital">Digital Marketing</option>
+                    <option value="app">Mobile App</option>
+                </select>
+            </div>
+
+            <div class="input-group full">
+                <input required>
+                <label>Project Details</label>
+            </div>
+        </div>
+
+        <button type="submit" class="btn" id="submitBtn">
+            <span class="btn-text">Get Free Quote</span>
+            <div class="spinner"></div>
+        </button>
+
+        <div class="success-message" id="successMsg">
+            ✓ Quote Request Submitted Successfully!
+        </div>
+    </form>
+</div>
+
+
+  </div>
+
+  <script src="main.js"></script>
+
+</body>
+</html>

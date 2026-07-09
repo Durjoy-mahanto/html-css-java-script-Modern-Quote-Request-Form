@@ -1,0 +1,267 @@
+:root {
+        --mouse-x: 0px;
+        --mouse-y: 0px;
+    }
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: linear-gradient(135deg, #0f172a, #1e293b, #0f172a);
+        overflow: hidden;
+        position: relative;
+      	scale:0.8
+    }
+
+    /* Interactive Animated Background Blobs */
+    .blob {
+        position: absolute;
+        width: 350px;
+        height: 350px;
+        border-radius: 50%;
+        filter: blur(80px);
+        z-index: 0;
+        transition: transform 0.1s ease-out;
+    }
+
+    .blob-1 {
+        background: #00d4ff;
+        top: -100px;
+        left: -100px;
+        animation: float 8s infinite ease-in-out;
+        transform: translate(calc(var(--mouse-x) * -0.05), calc(var(--mouse-y) * -0.05));
+    }
+
+    .blob-2 {
+        background: #ff6b00;
+        bottom: -100px;
+        right: -100px;
+        animation: float 8s infinite ease-in-out;
+        animation-delay: 4s;
+        transform: translate(calc(var(--mouse-x) * 0.05), calc(var(--mouse-y) * 0.05));
+    }
+
+    @keyframes float {
+        0%, 100% { transform: translateY(0) scale(1); }
+        50% { transform: translateY(40px) scale(1.05); }
+    }
+
+    /* Form Card */
+    .quote-form {
+        width: 90%;
+        max-width: 700px;
+        padding: 40px;
+        background: rgba(255, 255, 255, 0.08);
+        backdrop-filter: blur(20px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 25px;
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+        animation: fadeIn 1s ease;
+        z-index: 10;
+    }
+
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(40px) scale(0.95); }
+        to { opacity: 1; transform: translateY(0) scale(1); }
+    }
+
+    .quote-form h2 {
+        color: #fff;
+        text-align: center;
+        margin-bottom: 10px;
+        font-size: 32px;
+    }
+
+    .quote-form p {
+        color: #cbd5e1;
+        text-align: center;
+        margin-bottom: 30px;
+    }
+
+    /* Grid & Staggered Animations */
+    .form-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+
+    .input-group {
+        position: relative;
+        opacity: 0;
+        animation: slideUp 0.6s ease forwards;
+    }
+
+    /* Staggered delays for child elements */
+    .input-group:nth-child(1) { animation-delay: 0.1s; }
+    .input-group:nth-child(2) { animation-delay: 0.2s; }
+    .input-group:nth-child(3) { animation-delay: 0.3s; }
+    .input-group:nth-child(4) { animation-delay: 0.4s; }
+    .input-group.full { animation-delay: 0.5s; }
+
+    @keyframes slideUp {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    .input-group.full {
+        grid-column: span 2;
+    }
+
+    .input-group input,
+    .input-group textarea,
+    .input-group select {
+        width: 100%;
+        padding: 15px;
+        background: rgba(255, 255, 255, 0.08);
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        border-radius: 12px;
+        outline: none;
+        color: #fff;
+        font-size: 15px;
+        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    /* Micro-interaction: Scale on hover */
+    .input-group input:hover,
+    .input-group textarea:hover,
+    .input-group select:hover {
+        background: rgba(255, 255, 255, 0.12);
+        transform: scale(1.02);
+    }
+
+    .input-group textarea {
+        min-height: 120px;
+        resize: none;
+    }
+
+    .input-group label {
+        position: absolute;
+        left: 15px;
+        top: 15px;
+        color: #cbd5e1;
+        pointer-events: none;
+        transition: 0.3s ease;
+    }
+
+    .input-group input:focus,
+    .input-group textarea:focus,
+    .input-group select:focus {
+        border-color: #00d4ff;
+        box-shadow: 0 0 15px rgba(0, 212, 255, 0.3);
+        transform: scale(1.02);
+    }
+
+    .input-group input:focus ~ label,
+    .input-group input:valid ~ label,
+    .input-group textarea:focus ~ label=
+    .input-group textarea:valid ~ label {
+        top: -10px;
+        left: 12px;
+        font-size: 12px;
+        padding: 0 6px;
+        background: #0f172a;
+        color: #00d4ff;
+        border-radius: 4px;
+    }
+
+    select { color: #fff; }
+    option { color: #000; }
+
+    /* Button with Loading State */
+    .btn {
+        width: 100%;
+        margin-top: 25px;
+        padding: 15px;
+        border: none;
+        border-radius: 12px;
+        background: linear-gradient(45deg, #00d4ff, #0066ff);
+        color: #fff;
+        font-size: 17px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: 0.4s;
+        position: relative;
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 55px;
+    }
+
+    .btn:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 10px 25px rgba(0, 212, 255, 0.4);
+    }
+
+    .btn:active {
+        transform: translateY(1px);
+    }
+
+    .btn::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: rgba(255, 255, 255, 0.2);
+        transform: skewX(-30deg);
+    }
+
+    .btn:hover::before {
+        animation: shine 0.8s;
+    }
+
+    @keyframes shine {
+        100% { left: 120%; }
+    }
+
+    /* Spinner for Loading State */
+    .spinner {
+        display: none;
+        width: 24px;
+        height: 24px;
+        border: 3px solid rgba(255,255,255,0.3);
+        border-top-color: #fff;
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+    }
+
+    .btn.loading .btn-text { display: none; }
+    .btn.loading .spinner { display: block; }
+    .btn.loading { pointer-events: none; opacity: 0.8; }
+
+    @keyframes spin {
+        to { transform: rotate(360deg); }
+    }
+
+    /* Success Message */
+    .success-message {
+        margin-top: 20px;
+        text-align: center;
+        color: #00ff95;
+        font-weight: 600;
+        display: none;
+        animation: pop 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    @keyframes pop {
+        0% { transform: scale(0.5); opacity: 0; }
+        100% { transform: scale(1); opacity: 1; }
+    }
+
+    /* Responsive */
+    @media(max-width: 768px) {
+        .form-grid { grid-template-columns: 1fr; }
+        .input-group.full { grid-column: span 1; }
+        .quote-form { padding: 25px; }
+        .quote-form h2 { font-size: 26px; }
+    }
